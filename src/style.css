@@ -1,3 +1,16 @@
+/* 
+Things to do (delete comments after completion)
+1. In main .content, add an "Add Task" button aligned with the h1 - DONE
+2. In main .content, fix the spacing between the to-dos - DONE
+3. In main .content, use modified checkbox design (refer to w3schools sample) - DONE
+4. Complete nav .profile, add placeholder photo
+5. Add searchbar (refer to w3schools sample for styling)
+6. Add header icons 
+7. Add placeholder logo in header
+8. Replace nav li content with <button>
+9. Setup javascript (refer to index.js comments) 
+*/
+
 body {
     margin: 0;
     border: 0;
@@ -36,25 +49,128 @@ main {
         justify-content: space-between;
     }
 
+        main .side nav ul {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap: 24px;
+            
+        }
+
+        main .side nav li {
+            display: flex;
+            align-items: start;
+            gap: 24px;
+        }
+
+            main .side nav li svg {
+                height: 20px;
+                width: auto;
+            }
+
     main .content {
         display: flex;
         flex-direction: column;
-        padding: 24px;
+        padding: 0px 24px 24px 24px;
         background-color: #F9F9FA;
     }
 
-        main .content h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 32px;
-            font-weight: 700;
-            line-height: 48px;
-            color: #323743FF;
+        .content .content-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        main .content .container {
+            main .content-header h1 {
+                font-family: 'Poppins', sans-serif;
+                font-size: 32px;
+                font-weight: 700;
+                line-height: 48px;
+                color: #323743FF;
+            }
+
+            main .content-header button {
+                font-family: 'Inter', sans-serif;
+                font-size: 24px;
+                color: #2f4f2f;
+                display: flex;
+                gap: 12px;
+                font-size: 24px;
+                border: none;
+                background-color: transparent;
+            }
+        
+            main .content-header button svg {
+                width: 30px;
+            }
+
+        .content .container {
             border: 3px dashed #DEE1E6FF;
             height: 100%;
         }
+        
+            .container li {
+                display: flex;
+                margin-bottom: 12px;
+                gap: 12px;
+                align-items: center;
+            }
 
+                .label-container {
+                    display: flex;
+                    gap: 24px;
+                }
+
+                    /* Hide the browser's default checkbox */
+                    .label-container input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                    height: 0;
+                    width: 0;
+                    }
+
+                    /* Create a custom checkbox */
+                    .label-container .checkmark {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 25px;
+                        width: 25px;
+                        background-color: #eee;
+                    }
+
+                    /* On mouse-over, add a grey background color */
+                    .label-container:hover input ~ .checkmark {
+                        background-color: #ccc;
+                    }
+                    
+                    /* When the checkbox is checked, add a blue background */
+                    .label-container input:checked ~ .checkmark {
+                        background-color: #2196F3;
+                    }
+
+                    /* Create the checkmark/indicator (hidden when not checked) */
+                    .label-container .checkmark:after {
+                        content: "";
+                        position: absolute;
+                        display: none;
+                    }
+                    
+                    /* Show the checkmark when checked */
+                    .label-container input:checked ~ .checkmark:after {
+                        display: flex;
+                    }
+                    
+                    /* Style the checkmark/indicator */
+                    .label-container .checkmark:after {
+                        width: 5px;
+                        height: 10px;
+                        border: solid white;
+                        border-width: 0 3px 3px 0;
+                        -webkit-transform: rotate(45deg);
+                        -ms-transform: rotate(45deg);
+                        transform: rotate(45deg);
+                    }
 
 
