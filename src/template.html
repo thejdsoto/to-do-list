@@ -83,6 +83,20 @@
         <div class="content">
             <div class="content-header">
                 <h1>To-Do List</h1>
+                <dialog>
+                    <button autofocus>Close</button>
+                    <form>
+                        <label for="title" id="title">Title:</label>
+                        <input type="text" for="title" class="title-input"/>
+            
+                        <label for="date-start" id="date-start">Date Start:</label>
+                        <input type="date" for="date-start" class="date-start-input"/>
+            
+                        <label for="date-due" id="date-due">Date Due:</label>
+                        <input type="date" for="date-due" class="date-due-input"/>
+                    </form>
+                    <button type="submit" class="submit-task">Add task</button>
+                </dialog>
                 <button class="add-task">
                     Add Task 
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
@@ -91,7 +105,18 @@
                 </button>
             </div>
             <div class="container">
-                <ul>
+                <table>
+                    <thead>
+                        <th>Title</th>
+                        <th>Date Start</th>
+                        <th>Date Due</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <!-- <ul>
                     <li>
                         <label class="label-container">
                             <input type="checkbox" checked="checked">
@@ -127,7 +152,7 @@
                         </label>
                         To-do 5
                     </li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </main>
