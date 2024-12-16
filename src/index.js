@@ -1,7 +1,9 @@
+import { EventListener } from "./EventListener.js";
 import "./style.css";
 
 console.log("Webpack is working!");
 
+EventListener.addTask();
 
 // Things to do:
 
