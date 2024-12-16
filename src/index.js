@@ -1,9 +1,12 @@
+import { DOMController } from "./DOMController.js";
 import { EventListener } from "./EventListener.js";
 import "./style.css";
 
 console.log("Webpack is working!");
 
-EventListener.addTask();
+DOMController.displayProjects();
+EventListener.showDialog();
+EventListener.closeDialog();
 
 // Things to do:
 
