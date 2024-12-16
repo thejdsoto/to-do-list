@@ -4,10 +4,10 @@ Things to do (delete comments after completion)
 2. In main .content, fix the spacing between the to-dos - DONE
 3. In main .content, use modified checkbox design (refer to w3schools sample) - DONE
 4. Complete nav .profile, add placeholder photo
-5. Add searchbar (refer to w3schools sample for styling)
-6. Add header icons 
-7. Add placeholder logo in header
-8. Replace nav li content with <button>
+5. Add searchbar (refer to w3schools sample for styling) - DEFERRED 
+6. Add header icons - DEFERRED 
+7. Add placeholder logo in header - DONE/FOR IMPROVEMENT
+8. Replace nav li content with <button> - DONE
 9. Setup javascript (refer to index.js comments) 
 */
 
@@ -37,6 +37,10 @@ header {
     padding: 12px;
 }
 
+    header .logo {
+        text-align: center;
+    }
+
 main {
     display: grid;
     grid-template-columns: 0.5fr 4fr;
@@ -62,6 +66,18 @@ main {
             align-items: start;
             gap: 24px;
         }
+
+            main .side nav li button {
+                background-color: transparent;
+                border: none;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-family: 'Inter', sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 26px;
+            }
 
             main .side nav li svg {
                 height: 20px;
