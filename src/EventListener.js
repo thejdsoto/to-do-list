@@ -43,6 +43,7 @@ class EventListener {
             DOMController.clearNav();
             DOMController.clearForm();
             DOMController.displayProjects(todo.getProject());
+            EventListener.showTasks(todo.getProject());
             e.preventDefault();
         });
     }
