@@ -1,18 +1,22 @@
 import { toDo } from "./ToDo.js";
 import { Project } from "./Project.js";
-import { Task } from "./Task.js";
 
 class DOMController {
-    static displayTasks() {
-
+    static displayTasks(button, projects) {
+        const tableBody = document.querySelector(".container table tbody");
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        let index = button.dataset.idx;
+        td.innerText = `${projects[index].task}`;
+        
+        tr.appendChild(td);
+        tableBody.appendChild(tr);
     }
 
-    static displayProjects() {
+    static displayProjects(projects) {
         const projectList = document.querySelector("main .side nav ul");
-        let todo = new toDo();
-        let projects = todo.getProject();
 
-        projects.forEach((e) => {
+        projects.forEach((e, idx) => {
             const li = document.createElement("li");
             const btn = document.createElement("button");
             btn.innerHTML = `                            
@@ -21,9 +25,16 @@ class DOMController {
                 </svg>
                 ${e.project}
                 `;
+            btn.setAttribute('data-idx', idx);
             li.appendChild(btn);
             projectList.appendChild(li);
         });
+    }
+
+    static clearContents() {
+        const tableBody = document.querySelector(".container table tbody");
+
+        tableBody.innerHTML = '';
     }
 }
 

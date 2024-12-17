@@ -1,7 +1,9 @@
 import { Task } from "./Task.js";
 import { Project } from "./Project.js";
+import { DOMController } from "./DOMController.js";
 
 class EventListener {
+    
     static showDialog() {
         const dialog = document.querySelector("dialog");
         const showButton = document.querySelector("dialog + button");
@@ -16,6 +18,17 @@ class EventListener {
         const closeButton = document.querySelector("dialog button");
         closeButton.addEventListener("click", () => {
             dialog.close();
+        });
+    }
+
+    static showTasks(projects) {
+        const projectList = document.querySelectorAll("main .side nav ul li button");
+
+        projectList.forEach((button) => {
+            button.addEventListener("click", () => {
+                DOMController.clearContents();
+                DOMController.displayTasks(button, projects);
+            }); 
         });
     }
 
