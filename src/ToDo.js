@@ -1,23 +1,23 @@
 class toDo {
     #projects = [
         {
-            project: "Adam Project",
+            name: "Adam PRoject",
             task: "Task_1"
         },
         {
-            project: "ZAP AND ZEAL",
+            name: "ZAP AND ZEAL",
             task: "Task_2"
         },
         {
-            project: "GLOBE FTK",
+            name: "GLOBE FTK",
             task: "Task_3"
         },
         {
-            project: "Lose Turnel-use",
+            name: "Lose Turnel-use",
             task: "Task_4"
         },
         {
-            project: "Boston",
+            name: "Boston",
             task: "Task_5"
         },
     ];

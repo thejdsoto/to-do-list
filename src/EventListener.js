@@ -3,7 +3,7 @@ import { Project } from "./Project.js";
 import { DOMController } from "./DOMController.js";
 
 class EventListener {
-    
+
     static showDialog() {
         const dialog = document.querySelector("dialog");
         const showButton = document.querySelector("dialog + button");
@@ -26,9 +26,24 @@ class EventListener {
 
         projectList.forEach((button) => {
             button.addEventListener("click", () => {
-                DOMController.clearContents();
+                DOMController.clearTable();
                 DOMController.displayTasks(button, projects);
             }); 
+        });
+    }
+
+    static submitProject(todo) {
+        const submitProjectBtn = document.querySelector(".submit-project");
+
+        submitProjectBtn.addEventListener("click", (e) => {
+            let name = document.querySelector(".name-input");
+            let project = new Project(name.value);
+
+            todo.addProject(project);
+            DOMController.clearNav();
+            DOMController.clearForm();
+            DOMController.displayProjects(todo.getProject());
+            e.preventDefault();
         });
     }
 

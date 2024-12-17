@@ -1,30 +1,20 @@
 import { DOMController } from "./DOMController.js";
 import { EventListener } from "./EventListener.js";
+import { toDo } from "./ToDo.js";
 import "./style.css";
 
 console.log("Webpack is working!");
+let todo = new toDo();
 
-DOMController.displayProjects();
+DOMController.displayProjects(todo.getProject());
 EventListener.showDialog();
 EventListener.closeDialog();
+EventListener.showTasks(todo.getProject());
+EventListener.submitProject(todo);
 
 // Things to do:
 
-// (NOTE: Finish comments in style.css first)
-// Planned modules:
-// - EventListener
-// - DOMController
-// - Tasks
-//     - setTask
-//     - getTask
-//     - deleteTask
-// - Projects
-//     - setProject
-//     - getProject
-//     - deleteProject
-
-// 1. Set EventListeners for nav.
-// 2. Set EventListener for Add Task button.
-// 3. Create sample data of Tasks and display in DOM.
-// 4. Create sample data of Projects and display in DOM.
-// 5. Implement Add Task in console only
+// 1. finish code for displaying tasks when clicking the projects in the side nav
+// 2. add project functionality
+// 3. add task functionality
+// 4. Delete task functionality
