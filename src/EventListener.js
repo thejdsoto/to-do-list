@@ -1,52 +1,90 @@
 import { Task } from "./Task.js";
 import { Project } from "./Project.js";
+import { toDo } from "./ToDo.js";
 import { DOMController } from "./DOMController.js";
 
 class EventListener {
+    // static createdProjects = [];
+    // static latestIndex;
 
-    static showDialog() {
-        const dialog = document.querySelector("dialog");
-        const showButton = document.querySelector("dialog + button");
+    // static showAddProjectDialog() {
+    //     const dialog = document.querySelector("nav dialog");
+    //     const showButton = document.querySelector("button.add-project");
         
-        showButton.addEventListener("click", () => {
-            dialog.showModal();
-        });
-    }
+    //     showButton.addEventListener("click", () => {
+    //         dialog.showModal();
+    //     });
+    // }
 
-    static closeDialog() {
-        const dialog = document.querySelector("dialog");
-        const closeButton = document.querySelector("dialog button");
-        closeButton.addEventListener("click", () => {
-            dialog.close();
-        });
-    }
+    // static showAddTaskDialog() {
+    //     const dialog = document.querySelector(".content-header dialog");
+    //     const showButton = document.querySelector("button.add-task");
+        
+    //     showButton.addEventListener("click", () => {
+    //         dialog.showModal();
+    //     });
+    // }
 
-    static showTasks(projects) {
-        const projectList = document.querySelectorAll("main .side nav ul li button");
+    // static closeAddProjectDialog() {
+    //     const dialog = document.querySelector("nav dialog");
+    //     const closeButton = document.querySelector(".close-add-project");
+    //     closeButton.addEventListener("click", () => {
+    //         dialog.close();
+    //     });
+    // }
 
-        projectList.forEach((button) => {
-            button.addEventListener("click", () => {
-                DOMController.clearTable();
-                DOMController.displayTasks(button, projects);
-            }); 
-        });
-    }
+    // static closeAddTaskDialog() {
+    //     const dialog = document.querySelector(".content-header dialog");
+    //     const closeButton = document.querySelector(".close-add-task");
+    //     closeButton.addEventListener("click", () => {
+    //         dialog.close();
+    //     });
+    // }
 
-    static submitProject(todo) {
-        const submitProjectBtn = document.querySelector(".submit-project");
+    // static showTasks(projects) {
+    //     const projectList = document.querySelectorAll("main .side nav ul li button");
 
-        submitProjectBtn.addEventListener("click", (e) => {
-            let name = document.querySelector(".name-input");
-            let project = new Project(name.value);
+    //     projectList.forEach((button) => {
+    //         if (typeof button.dataset.idx !== undefined) {
+    //             button.addEventListener("click", () => {
+    //                 DOMController.clearTable();
+    //                 DOMController.displayTasks(button, projects.getProject());
+    //                 EventListener.latestIndex = button.dataset.idx;
+    //                 console.log(EventListener.latestIndex);
+    //             }); 
+    //         }
+    //     });
+    // }
 
-            todo.addProject(project);
-            DOMController.clearNav();
-            DOMController.clearForm();
-            DOMController.displayProjects(todo.getProject());
-            EventListener.showTasks(todo.getProject());
-            e.preventDefault();
-        });
-    }
+    // static submitProject = (todo) => {
+    //     const submitProjectBtn = document.querySelector(".submit-project");
+
+    //     submitProjectBtn.addEventListener("click", (e) => {
+    //         let name = document.querySelector(".name-input");
+    //         let project = new Project(name.value);
+
+    //         EventListener.createdProjects.push(project);
+    //         todo.addProject(project);   
+    //         DOMController.clearNav();
+    //         DOMController.clearForm();
+    //         DOMController.displayProjects(todo.getProject());
+    //         EventListener.showTasks(todo);
+    //         e.preventDefault();
+    //     });
+    // }
+
+    // static submitTask(projects, idx) {
+    //     const submitTaskBtn = document.querySelector(".submit-task");
+
+    //     submitTaskBtn.addEventListener("click", () => {
+    //         let title = document.querySelector(".title-input");
+    //         let dateStart = document.querySelector(".date-start-input");
+    //         let dateDue = document.querySelector(".date-due-input");
+
+    //         let task = new Task(title.value, dateStart.value, dateDue.value, false);
+    //         EventListener.createdProjects[parseInt(idx)].addTask(task);
+    //     });
+    // }
 
     // static addTask() {
     //     const addTaskBTn = document.querySelector("button.add-task");

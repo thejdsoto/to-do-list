@@ -1,17 +1,17 @@
 class Project {
     constructor(name) {
         this.name = name;
+        this.tasks = [];
     }
     
-    #tasks = [];
-
     addTask(task) {
-        this.#tasks.push(task);
+        this.tasks.push(task);
     }
 
     getTasks() {
-        return this.#tasks;
+        return this.tasks;
     }
+
 }
 
 export {Project, }
