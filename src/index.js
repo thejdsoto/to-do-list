@@ -1,5 +1,5 @@
 import { DOMController } from "./DOMController.js";
-// import { EventListener } from "./EventListener.js";
+import { EventListener } from "./EventListener.js";
 // import { toDoManager } from "./ToDoManager.js";
 import { Project } from "./Project.js";
 import "./style.css";
@@ -11,7 +11,7 @@ let project = new Project("project_test");
 // DOMController.displayProjects(todo.getProject());
 DOMController.renderTasks(project);
 // EventListener.showAddProjectDialog();
-// EventListener.showAddTaskDialog();
+EventListener.addTaskDialog();
 // EventListener.closeAddProjectDialog();
 // EventListener.closeAddTaskDialog();
 // EventListener.showTasks(project);

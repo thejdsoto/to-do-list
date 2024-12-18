@@ -16,26 +16,23 @@ class EventListener {
     //     });
     // }
 
-    // static showAddTaskDialog() {
-    //     const dialog = document.querySelector(".content-header dialog");
-    //     const showButton = document.querySelector("button.add-task");
+    static addTaskDialog() {
+        const dialog = document.querySelector(".content-header dialog");
+        const showButton = document.querySelector("button.add-task");
+        const closeButton = document.querySelector(".close-add-task");
         
-    //     showButton.addEventListener("click", () => {
-    //         dialog.showModal();
-    //     });
-    // }
+        showButton.addEventListener("click", () => {
+            dialog.showModal();
+        });
+
+        closeButton.addEventListener("click", () => {
+            dialog.close();
+        });
+    }
 
     // static closeAddProjectDialog() {
     //     const dialog = document.querySelector("nav dialog");
     //     const closeButton = document.querySelector(".close-add-project");
-    //     closeButton.addEventListener("click", () => {
-    //         dialog.close();
-    //     });
-    // }
-
-    // static closeAddTaskDialog() {
-    //     const dialog = document.querySelector(".content-header dialog");
-    //     const closeButton = document.querySelector(".close-add-task");
     //     closeButton.addEventListener("click", () => {
     //         dialog.close();
     //     });
