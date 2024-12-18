@@ -9,6 +9,7 @@ class DOMController {
             const tr = document.createElement("tr");
             const deleteBtn = document.createElement("button");
             const editBtn = document.createElement("button");
+            const tdActionBtn = document.createElement("td");
 
             for (let key in e) {    
                 const td = document.createElement("td");
@@ -18,8 +19,9 @@ class DOMController {
 
             deleteBtn.innerText = "Delete";
             editBtn.innerText = "Edit";
-            tr.appendChild(editBtn);
-            tr.appendChild(deleteBtn);
+            tdActionBtn.appendChild(editBtn);
+            tdActionBtn.appendChild(deleteBtn);
+            tr.append(tdActionBtn);
             tableBody.appendChild(tr);
         }); 
     }

@@ -121,3 +121,9 @@ main {
                     padding: 12px 36px;
                 }
 
+                .container table tbody tr td:last-child {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+
