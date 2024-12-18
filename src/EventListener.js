@@ -29,7 +29,7 @@ class EventListener {
             dialog.close();
         });
     }
-
+    
     // static closeAddProjectDialog() {
     //     const dialog = document.querySelector("nav dialog");
     //     const closeButton = document.querySelector(".close-add-project");
