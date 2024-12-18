@@ -16,7 +16,7 @@ EventListener.addTaskDialog();
 // EventListener.closeAddTaskDialog();
 // EventListener.showTasks(project);
 // EventListener.submitProject(todo);
-// EventListener.submitTask(todo);
+EventListener.submitTask(project);
 
 // Things to do:
 

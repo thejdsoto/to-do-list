@@ -47,11 +47,12 @@ class DOMController {
 
 //         ul.innerHTML = '';
 //     }
-//     static clearTable() {
-//         const tbody = document.querySelector("table tbody");
 
-//         tbody.innerHTML = '';
-//     }
+    static clearTable() {
+        const tbody = document.querySelector("table tbody");
+
+        tbody.innerHTML = '';
+    }
 
 //     static clearForm() {
 //         const form = document.querySelector("form");

@@ -1,5 +1,5 @@
-// import { Task } from "./Task.js";
-// import { Project } from "./Project.js";
+import { Task } from "./Task.js";
+import { Project } from "./Project.js";
 // import { toDo } from "./ToDo.js";
 import { DOMController } from "./DOMController.js";
 
@@ -29,7 +29,7 @@ class EventListener {
             dialog.close();
         });
     }
-    
+
     // static closeAddProjectDialog() {
     //     const dialog = document.querySelector("nav dialog");
     //     const closeButton = document.querySelector(".close-add-project");
@@ -70,18 +70,20 @@ class EventListener {
     //     });
     // }
 
-    // static submitTask(projects, idx) {
-    //     const submitTaskBtn = document.querySelector(".submit-task");
+    static submitTask(project) {
+        const submitTaskBtn = document.querySelector(".submit-task");
 
-    //     submitTaskBtn.addEventListener("click", () => {
-    //         let title = document.querySelector(".title-input");
-    //         let dateStart = document.querySelector(".date-start-input");
-    //         let dateDue = document.querySelector(".date-due-input");
+        submitTaskBtn.addEventListener("click", () => {
+            let title = document.querySelector(".title-input");
+            let dateStart = document.querySelector(".date-start-input");
+            let dateDue = document.querySelector(".date-due-input");
 
-    //         let task = new Task(title.value, dateStart.value, dateDue.value, false);
-    //         EventListener.createdProjects[parseInt(idx)].addTask(task);
-    //     });
-    // }
+            let task = new Task(title.value, dateStart.value, dateDue.value, false);
+            project.addTask(task);
+            DOMController.clearTable();
+            DOMController.renderTasks(project);
+        });
+    }
 
     // static addTask() {
     //     const addTaskBTn = document.querySelector("button.add-task");
