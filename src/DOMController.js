@@ -4,14 +4,22 @@
 class DOMController {
     static renderTasks(project) {
         const tableBody = document.querySelector(".container table tbody");
-        
+
         project.tasks.forEach((e) => {
             const tr = document.createElement("tr");
+            const deleteBtn = document.createElement("button");
+            const editBtn = document.createElement("button");
+
             for (let key in e) {    
                 const td = document.createElement("td");
                 td.innerText = e[key];  
                 tr.appendChild(td);
             }
+
+            deleteBtn.innerText = "Delete";
+            editBtn.innerText = "Edit";
+            tr.appendChild(editBtn);
+            tr.appendChild(deleteBtn);
             tableBody.appendChild(tr);
         }); 
     }
