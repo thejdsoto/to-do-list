@@ -1,20 +1,22 @@
 import { DOMController } from "./DOMController.js";
 import { EventListener } from "./EventListener.js";
-// import { toDoManager } from "./ToDoManager.js";
+import { toDoManager } from "./toDoManager.js";
 import { Project } from "./Project.js";
 import "./style.css";
 
 console.log("Webpack is working!");
+let manager = new toDoManager();
 let project = new Project("project_test");
 // let todo = new toDoManager();
 
 // DOMController.displayProjects(todo.getProject());
+DOMController.renderProjects(manager);
 DOMController.renderTasks(project);
+
 // EventListener.showAddProjectDialog();
 EventListener.addTaskDialog();
 // EventListener.closeAddProjectDialog();
 // EventListener.closeAddTaskDialog();
-// EventListener.showTasks(project);
 // EventListener.submitProject(todo);
 EventListener.submitTask(project);
 
