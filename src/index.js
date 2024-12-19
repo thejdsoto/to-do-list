@@ -18,11 +18,12 @@ DOMController.renderProjects(manager);
 
 // EVENT LISTENERS
 EventListener.displayTasks(manager);
+EventListener.submitTask(manager);
+EventListener.addProjectDialog();
 EventListener.addTaskDialog();
 // EventListener.closeAddProjectDialog();
 // EventListener.closeAddTaskDialog();
 // EventListener.submitProject(todo);
-EventListener.submitTask(project);
 
 // Things to do:
 

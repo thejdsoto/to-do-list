@@ -4,17 +4,20 @@ import { Project } from "./Project.js";
 import { DOMController } from "./DOMController.js";
 
 class EventListener {
-    // static createdProjects = [];
-    // static latestIndex;
 
-    // static showAddProjectDialog() {
-    //     const dialog = document.querySelector("nav dialog");
-    //     const showButton = document.querySelector("button.add-project");
+    static addProjectDialog() {
+        const dialog = document.querySelector("nav dialog");
+        const showButton = document.querySelector("button.add-project");
+        const closeButton = document.querySelector(".close-add-project");
         
-    //     showButton.addEventListener("click", () => {
-    //         dialog.showModal();
-    //     });
-    // }
+        showButton.addEventListener("click", () => {
+            dialog.showModal();
+        });
+
+        closeButton.addEventListener("click", () => {
+            dialog.close();
+        });
+    }
 
     static addTaskDialog() {
         const dialog = document.querySelector(".content-header dialog");
@@ -30,14 +33,6 @@ class EventListener {
         });
     }
 
-    // static closeAddProjectDialog() {
-    //     const dialog = document.querySelector("nav dialog");
-    //     const closeButton = document.querySelector(".close-add-project");
-    //     closeButton.addEventListener("click", () => {
-    //         dialog.close();
-    //     });
-    // }
-
     static displayTasks(manager) {
         const projectList = document.querySelectorAll("main .side nav ul li button");
 
@@ -45,12 +40,12 @@ class EventListener {
             btn.addEventListener("click", () => {
                 let btnIndex = parseInt(btn.dataset.index);
                 DOMController.clearTable();
-                DOMController.renderTasks(btnIndex, manager);           
+                DOMController.renderTasks(btnIndex, manager);       
             });
         });
     }
 
-    // static submitProject = (todo) => {
+    // static submitProject(manager){
     //     const submitProjectBtn = document.querySelector(".submit-project");
 
     //     submitProjectBtn.addEventListener("click", (e) => {
@@ -67,8 +62,16 @@ class EventListener {
     //     });
     // }
 
-    static submitTask(project) {
+    static submitTask(manager, index) {
         const submitTaskBtn = document.querySelector(".submit-task");
+        const projectList = document.querySelectorAll("main .side nav ul li button");
+        let lastIndex;
+
+        projectList.forEach((e) => {
+            e.addEventListener("click", () => {
+                lastIndex = parseInt(e.dataset.index);
+            });
+        });
 
         submitTaskBtn.addEventListener("click", () => {
             let title = document.querySelector(".title-input");
@@ -76,9 +79,10 @@ class EventListener {
             let dateDue = document.querySelector(".date-due-input");
 
             let task = new Task(title.value, dateStart.value, dateDue.value, "Incomplete");
-            project.addTask(task);
+
+            manager.addTask(task, lastIndex);
             DOMController.clearTable();
-            DOMController.renderTasks(project);
+            DOMController.renderTasks(lastIndex, manager);
         });
     }
 }
