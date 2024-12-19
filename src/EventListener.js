@@ -38,20 +38,17 @@ class EventListener {
     //     });
     // }
 
-    // static showTasks(projects) {
-    //     const projectList = document.querySelectorAll("main .side nav ul li button");
+    static displayTasks(manager) {
+        const projectList = document.querySelectorAll("main .side nav ul li button");
 
-    //     projectList.forEach((button) => {
-    //         if (typeof button.dataset.idx !== undefined) {
-    //             button.addEventListener("click", () => {
-    //                 DOMController.clearTable();
-    //                 DOMController.displayTasks(button, projects.getProject());
-    //                 EventListener.latestIndex = button.dataset.idx;
-    //                 console.log(EventListener.latestIndex);
-    //             }); 
-    //         }
-    //     });
-    // }
+        projectList.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                let btnIndex = parseInt(btn.dataset.index);
+                DOMController.clearTable();
+                DOMController.renderTasks(btnIndex, manager);           
+            });
+        });
+    }
 
     // static submitProject = (todo) => {
     //     const submitProjectBtn = document.querySelector(".submit-project");

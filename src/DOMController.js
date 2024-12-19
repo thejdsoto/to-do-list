@@ -2,10 +2,11 @@ import { toDoManager } from "./toDoManager.js";
 // import { Project } from "./Project.js";
 
 class DOMController {
-    static renderTasks(project) {
+    static renderTasks(index, manager) {
         const tableBody = document.querySelector(".container table tbody");
+        const project = manager.getProjects();
 
-        project.tasks.forEach((e) => {
+        project[index].tasks.forEach((e) => {
             const tr = document.createElement("tr");
             const deleteBtn = document.createElement("button");
             const editBtn = document.createElement("button");
@@ -30,9 +31,10 @@ class DOMController {
         const projectList = document.querySelector("main .side nav ul");
         const projects = manager.getProjects();
 
-        projects.forEach((e) => {
+        projects.forEach((e, idx) => {
             const li = document.createElement("li");
             const btn = document.createElement("button");
+            btn.dataset.index = idx;
             btn.innerText = e.name;
             li.appendChild(btn);
             projectList.appendChild(li);

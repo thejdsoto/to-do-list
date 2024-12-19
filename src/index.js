@@ -10,10 +10,14 @@ let project = new Project("project_test");
 // let todo = new toDoManager();
 
 // DOMController.displayProjects(todo.getProject());
+
+// DOM CONTROLLERS
 DOMController.renderProjects(manager);
-DOMController.renderTasks(project);
 
 // EventListener.showAddProjectDialog();
+
+// EVENT LISTENERS
+EventListener.displayTasks(manager);
 EventListener.addTaskDialog();
 // EventListener.closeAddProjectDialog();
 // EventListener.closeAddTaskDialog();
