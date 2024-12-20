@@ -1,3 +1,5 @@
+import { EventListener } from "./EventListener";
+
 class toDoManager {
     constructor() {
         this.projects = [
@@ -92,6 +94,17 @@ class toDoManager {
         console.log(`after`);
         console.log(this.projects); 
     }
+
+    editTask(task, index) {
+
+    }
+
+    deleteTask(projIndex, taskIndex) {
+        this.projects[projIndex].tasks.splice(taskIndex, 1);
+        console.log(this.projects);
+    }
+
+
 
 }
 

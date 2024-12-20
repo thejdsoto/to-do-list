@@ -42,6 +42,8 @@ class EventListener {
                 let btnIndex = parseInt(btn.dataset.index);
                 DOMController.clearTable();
                 DOMController.renderTasks(btnIndex, manager);     
+                EventListener.getProjectIndex();
+                EventListener.deleteTask(manager);
             });
         });
     }
@@ -84,9 +86,26 @@ class EventListener {
         });
     }
 
+    static deleteTask(manager) {
+        const deleteTaskBtn = document.querySelectorAll("button.delete");
+
+        deleteTaskBtn.forEach((e) => {
+            e.addEventListener("click", () => {
+                console.log("clicked");
+                EventListener.getProjectIndex();
+                let projIndex = e.dataset.pidx;
+                let taskIndex = e.dataset.tidx;
+
+                manager.deleteTask(projIndex, taskIndex);
+                DOMController.clearTable();
+                DOMController.renderTasks(projIndex, manager);
+                EventListener.deleteTask(manager);
+            });
+        })
+    }
+    
     static getProjectIndex() {
         const projectList = document.querySelectorAll("main .side nav ul li button");
-
 
         projectList.forEach((e) => {
             e.addEventListener("click", () => {

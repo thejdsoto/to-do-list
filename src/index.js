@@ -22,6 +22,8 @@ EventListener.addProjectDialog();
 EventListener.submitProject(manager);
 EventListener.addTaskDialog();
 EventListener.submitTask(manager);
+EventListener.deleteTask(manager);
+EventListener.getProjectIndex();
 
 
 // EventListener.closeAddProjectDialog();

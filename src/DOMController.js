@@ -6,7 +6,7 @@ class DOMController {
         const tableBody = document.querySelector(".container table tbody");
         const project = manager.getProjects();
 
-        project[index].tasks.forEach((e) => {
+        project[index].tasks.forEach((e, idx) => {
             const tr = document.createElement("tr");
             const deleteBtn = document.createElement("button");
             const editBtn = document.createElement("button");
@@ -19,7 +19,11 @@ class DOMController {
             }
 
             deleteBtn.innerText = "Delete";
+            deleteBtn.setAttribute("class", "delete");
+            deleteBtn.dataset.pidx = index;
+            deleteBtn.dataset.tidx = idx;
             editBtn.innerText = "Edit";
+
             tdActionBtn.appendChild(editBtn);
             tdActionBtn.appendChild(deleteBtn);
             tr.append(tdActionBtn);
