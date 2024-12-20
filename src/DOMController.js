@@ -1,6 +1,3 @@
-import { toDoManager } from "./toDoManager.js";
-// import { Project } from "./Project.js";
-
 class DOMController {
     static renderTasks(index, manager) {
         const tableBody = document.querySelector(".container table tbody");
@@ -9,7 +6,6 @@ class DOMController {
         project[index].tasks.forEach((e, idx) => {
             const tr = document.createElement("tr");
             const deleteBtn = document.createElement("button");
-            const editBtn = document.createElement("button");
             const tdActionBtn = document.createElement("td");
 
             for (let key in e) {    
@@ -22,7 +18,6 @@ class DOMController {
             deleteBtn.setAttribute("class", "delete");
             deleteBtn.dataset.pidx = index;
             deleteBtn.dataset.tidx = idx;
-            editBtn.innerText = "Edit";
 
             tdActionBtn.appendChild(editBtn);
             tdActionBtn.appendChild(deleteBtn);

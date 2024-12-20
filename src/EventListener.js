@@ -1,6 +1,5 @@
 import { Task } from "./Task.js";
 import { Project } from "./Project.js";
-// import { toDo } from "./ToDo.js";
 import { DOMController } from "./DOMController.js";
 
 class EventListener {
@@ -69,17 +68,14 @@ class EventListener {
     static submitTask(manager) {
         const submitTaskBtn = document.querySelector(".submit-task");
         
-
         submitTaskBtn.addEventListener("click", () => {
             EventListener.getProjectIndex();
             let index = EventListener.lastIndex;
             let title = document.querySelector(".title-input");
             let dateStart = document.querySelector(".date-start-input");
             let dateDue = document.querySelector(".date-due-input");
-
             let task = new Task(title.value, dateStart.value, dateDue.value, "Incomplete");
 
-            console.log(`index sa submitTask is ${index}`);
             manager.addTask(task, index);
             DOMController.clearTable();
             DOMController.renderTasks(index, manager);
@@ -91,7 +87,6 @@ class EventListener {
 
         deleteTaskBtn.forEach((e) => {
             e.addEventListener("click", () => {
-                console.log("clicked");
                 EventListener.getProjectIndex();
                 let projIndex = e.dataset.pidx;
                 let taskIndex = e.dataset.tidx;
@@ -110,7 +105,6 @@ class EventListener {
         projectList.forEach((e) => {
             e.addEventListener("click", () => {
                 EventListener.lastIndex = parseInt(e.dataset.index);
-                console.log(EventListener.lastIndex);
             });
         });
     }
