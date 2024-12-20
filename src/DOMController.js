@@ -42,11 +42,11 @@ class DOMController {
 
     }
 
-//     static clearNav() {
-//         const ul = document.querySelector("nav ul");
+    static clearNav() {
+        const ul = document.querySelector("nav ul");
 
-//         ul.innerHTML = '';
-//     }
+        ul.innerHTML = '';
+    }
 
     static clearTable() {
         const tbody = document.querySelector("table tbody");
@@ -54,10 +54,10 @@ class DOMController {
         tbody.innerHTML = '';
     }
 
-//     static clearForm() {
-//         const form = document.querySelector("form");
-//         form.reset();
-//     }
+    static clearForm() {
+        const form = document.querySelector("form");
+        form.reset();
+    }
 }
 
 export {DOMController, }

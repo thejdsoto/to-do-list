@@ -4,6 +4,7 @@ import { Project } from "./Project.js";
 import { DOMController } from "./DOMController.js";
 
 class EventListener {
+    static lastIndex;
 
     static addProjectDialog() {
         const dialog = document.querySelector("nav dialog");
@@ -40,49 +41,58 @@ class EventListener {
             btn.addEventListener("click", () => {
                 let btnIndex = parseInt(btn.dataset.index);
                 DOMController.clearTable();
-                DOMController.renderTasks(btnIndex, manager);       
+                DOMController.renderTasks(btnIndex, manager);     
             });
         });
     }
 
-    // static submitProject(manager){
-    //     const submitProjectBtn = document.querySelector(".submit-project");
+    static submitProject(manager){
+        const submitProjectBtn = document.querySelector(".submit-project");
 
-    //     submitProjectBtn.addEventListener("click", (e) => {
-    //         let name = document.querySelector(".name-input");
-    //         let project = new Project(name.value);
+        submitProjectBtn.addEventListener("click", (e) => {
+            let name = document.querySelector(".name-input");
+            let project = new Project(name.value);
 
-    //         EventListener.createdProjects.push(project);
-    //         todo.addProject(project);   
-    //         DOMController.clearNav();
-    //         DOMController.clearForm();
-    //         DOMController.displayProjects(todo.getProject());
-    //         EventListener.showTasks(todo);
-    //         e.preventDefault();
-    //     });
-    // }
-
-    static submitTask(manager, index) {
-        const submitTaskBtn = document.querySelector(".submit-task");
-        const projectList = document.querySelectorAll("main .side nav ul li button");
-        let lastIndex;
-
-        projectList.forEach((e) => {
-            e.addEventListener("click", () => {
-                lastIndex = parseInt(e.dataset.index);
-            });
+            manager.addProject(project);   
+            DOMController.clearNav();
+            DOMController.clearForm();
+            DOMController.renderProjects(manager);
+            EventListener.getProjectIndex();
+            EventListener.displayTasks(manager);
+            e.preventDefault();
         });
 
+    }
+
+    static submitTask(manager) {
+        const submitTaskBtn = document.querySelector(".submit-task");
+        
+
         submitTaskBtn.addEventListener("click", () => {
+            EventListener.getProjectIndex();
+            let index = EventListener.lastIndex;
             let title = document.querySelector(".title-input");
             let dateStart = document.querySelector(".date-start-input");
             let dateDue = document.querySelector(".date-due-input");
 
             let task = new Task(title.value, dateStart.value, dateDue.value, "Incomplete");
 
-            manager.addTask(task, lastIndex);
+            console.log(`index sa submitTask is ${index}`);
+            manager.addTask(task, index);
             DOMController.clearTable();
-            DOMController.renderTasks(lastIndex, manager);
+            DOMController.renderTasks(index, manager);
+        });
+    }
+
+    static getProjectIndex() {
+        const projectList = document.querySelectorAll("main .side nav ul li button");
+
+
+        projectList.forEach((e) => {
+            e.addEventListener("click", () => {
+                EventListener.lastIndex = parseInt(e.dataset.index);
+                console.log(EventListener.lastIndex);
+            });
         });
     }
 }

@@ -86,10 +86,11 @@ class toDoManager {
 
     addTask(task, index) {
         console.log(`before`);
+        console.log(index);
         console.log(this.projects);
         this.projects[index].tasks.push(task);
         console.log(`after`);
-        console.log(this.projects);
+        console.log(this.projects); 
     }
 
 }
