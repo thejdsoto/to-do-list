@@ -1,5 +1,6 @@
 import { Task } from "./Task.js";
 import { Project } from "./Project.js";
+import { TodoManager } from "./TodoManager.js";
 import { DOMController } from "./DOMController.js";
 
 class EventListener {

@@ -19,7 +19,6 @@ class DOMController {
             deleteBtn.dataset.pidx = index;
             deleteBtn.dataset.tidx = idx;
 
-            tdActionBtn.appendChild(editBtn);
             tdActionBtn.appendChild(deleteBtn);
             tr.append(tdActionBtn);
             tableBody.appendChild(tr);
