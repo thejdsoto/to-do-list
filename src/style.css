@@ -126,4 +126,50 @@ main {
                     align-items: center;
                     gap: 8px;
                 }
+                
+dialog form div {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding: 24px;
+}
+
+dialog form input {
+    width: 300px;
+}
+
+dialog .container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 24px;
+}
+
+dialog .button-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+    dialog .button-container button {
+        border: 1px solid transparent;
+        border-radius: 12px;  
+        padding: 16px 14px 18px;
+        text-transform: uppercase;
+        cursor: pointer;
+        font-size: 14px;
+        color: #fff;
+        background-color: #15883e;
+        border-radius: 500px;
+        transition-property: background-color,border-color,color,box-shadow,filter;
+        transition-duration: .3s;
+        text-align: center;
+        letter-spacing: 2px;
+        font-weight: 700;
+        white-space: normal;
+    }
+
+        dialog .button-container button:hover {
+            background-color: #1db954;
+        }
 

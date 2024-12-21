@@ -19,12 +19,18 @@
         <div class="side">
             <nav>
                 <dialog>
-                    <button autofocus class="close-add-project">Close</button>
-                    <form>
-                        <label for="name" id="name">Name:</label>
-                        <input type="text" for="name" class="name-input"/>
-                    </form>
-                    <button type="submit" class="submit-project">Add project</button>
+                    <div class="container">
+                        <div>
+                            <form>
+                                <label for="name" id="name">Name:</label>
+                                <input type="text" for="name" class="name-input" required/>
+                            </form>
+                        </div>
+                        <div class="button-container">
+                            <button autofocus class="close-add-project">Close</button>
+                            <button type="submit" class="submit-project">Add project</button>
+                        </div>
+                    </div>
                 </dialog>
                 <button class="add-project">
                     Add Project
@@ -40,18 +46,28 @@
             <div class="content-header">
                 <h1>To-Do List</h1>
                 <dialog>
-                    <button autofocus class="close-add-task">Close</button>
-                    <form>
-                        <label for="title" id="title">Title:</label>
-                        <input type="text" for="title" class="title-input"/>
-            
-                        <label for="date-start" id="date-start">Date Start:</label>
-                        <input type="date" for="date-start" class="date-start-input"/>
-            
-                        <label for="date-due" id="date-due">Date Due:</label>
-                        <input type="date" for="date-due" class="date-due-input"/>
-                    </form>
-                    <button type="submit" class="submit-task">Add task</button>
+                    <div class="container">
+                        <div>
+                            <form>
+                                <div>
+                                    <label for="title" id="title">Title:</label>
+                                    <input type="text" for="title" class="title-input" required/>
+                                </div>
+                                <div>
+                                    <label for="date-start" id="date-start">Date Start:</label>
+                                    <input type="date" for="date-start" class="date-start-input" required/>
+                                </div>
+                                <div>
+                                    <label for="date-due" id="date-due">Date Due:</label>
+                                    <input type="date" for="date-due" class="date-due-input" required/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="button-container">
+                            <button autofocus class="close-add-task">Close</button>
+                            <button type="submit" class="submit-task">Add task</button>
+                        </div>
+                    </div>
                 </dialog>
                 <button class="add-task">
                     Add Task 
