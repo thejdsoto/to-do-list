@@ -19,8 +19,10 @@ EventListener.getProjectIndex();
 
 
 // Issues:
-// 1. User is able to click add task even if no project is selected (leading to runtime error)
+// 1. User is able to click add task even if no project is selected (leading to runtime error) - DONE
 // 2. Need to put hover effects and and when side nav option is selected
-// 3. Need to have validation in input of tasks (eg. blank inputs)
-// 4. Need to have validation or handling of input of projects (eg. blank inputs)
+// 3. Need to have validation in input of tasks (eg. blank inputs) 
+// 4. Need to have validation or handling of input of projects (eg. blank inputs) - DONE
 // 5. Impelement saving inputs to localStorage
+// 6. Implement edit task
+// 7. Complete revamp of css
