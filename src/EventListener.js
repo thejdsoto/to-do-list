@@ -75,11 +75,13 @@ class EventListener {
             let title = document.querySelector(".title-input");
             let dateStart = document.querySelector(".date-start-input");
             let dateDue = document.querySelector(".date-due-input");
-            let task = new Task(title.value, dateStart.value, dateDue.value, "Incomplete");
 
-            manager.addTask(task, index);
-            DOMController.clearTable();
-            DOMController.renderTasks(index, manager);
+            if (index >= 0) {
+                let task = new Task(title.value, dateStart.value, dateDue.value, "Incomplete");
+                manager.addTask(task, index);
+                DOMController.clearTable();
+            }
+            
         });
     }
 
